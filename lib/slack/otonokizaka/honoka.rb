@@ -11,7 +11,8 @@ module LoveLive
     end
 
     Muse.client.on :message do |data|
-      if data['channel'] == '#arc680_develop' && data['type'] == 'message' && data['subtype'] != 'bot_message'
+      if data['type'] == 'message' && data['subtype'] != 'bot_message'
+      && data['channel'] == Utils.get_channel_id('arc680_develop')
         self.speak(data['channel'], "<@#{data['user']}> ファイトだよ！")
       end
     end
